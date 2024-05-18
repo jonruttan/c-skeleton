@@ -54,8 +54,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Test Runner
-test/test-runner/
-
 # Binary
 c-skeleton
+

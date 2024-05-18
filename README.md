@@ -1,6 +1,6 @@
 # c-skeleton
 
-A minimalist C project skeleton to kickstart your C development. This repository provides a basic structure to help you set up your C projects quickly and efficiently.
+A minimalist project skeleton for C development. This repository provides a basic structure to set up C projects quickly and efficiently.
 
 ## Introduction
 
@@ -9,7 +9,7 @@ c-skeleton is a simple and minimalistic starting point for C projects. It includ
 ## Features
 
 - Basic project structure
-- Makefile for building the project
+- Flexible Makefile for building the project
 - Sample source files
 - Directory setup for source, header, and test files
 

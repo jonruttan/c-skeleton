@@ -19,14 +19,11 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 TARGET = $(BIN_DIR)/c-skeleton
 DEBUG_TARGET = $(TARGET)-debug
 
+
 # Default target
 all: $(TARGET) ## Build default target
 .PHONY: all
 
-# Strip symbols from target
-strip: $(TARGET) ## Strip symbols from target
-	strip $(TARGET)
-.PHONY: strip
 
 # Create obj directory if it doesn't exist
 @$(OBJ_DIR) $(BIN_DIR) $(TMP_DIR):
@@ -40,12 +37,13 @@ $(TARGET): $(OBJ) | $(BIN_DIR)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Target
-target: $(TARGET) ## Make target
+
+# Build target
+target: $(TARGET) ## Build target
 .PHONY: target
 
-# Debug target
-debug: $(DEBUG_TARGET) ## Make debug target
+# Build debug target
+debug: $(DEBUG_TARGET) ## Build debug target
 .PHONY: debug
 
 # Rules to build debug target
@@ -54,20 +52,15 @@ $(DEBUG_TARGET): LDFLAGS += -g
 $(DEBUG_TARGET): $(OBJ) | $(BIN_DIR)
 	$(CC) $(OBJ) -o $@ $(CFLAGS) $(LDFLAGS)
 
-# Clean target
-clean: ## Clean target
-	rm -f $(OBJ) $(TARGET)
-.PHONY: clean
 
-# Lint sources
-lint: ## Lint sources
-	$(CC) -fsyntax-only $(CFLAGS) -g -Wall -pedantic $(SRC)
-.PHONY: lint
+# Run target
+run: $(TARGET) ## Build and run target
+	$(TARGET)
 
-# Run valgrind on target
-valgrind: ## Run Valgrind on target
-	$(CC) $(CFLAGS) -g -Wall $(SRC) && valgrind -v --leak-check=full ./a.out && rm a.out
-.PHONY: valgrind
+# Run debug target
+run-debug: $(DEBUG_TARGET) ## Build and run debug target
+	$(DEBUG_TARGET)
+
 
 # Run tests
 test: ## Run tests
@@ -86,6 +79,31 @@ tests: test ## Run tests (alias)
 # Alias test-quick
 tests-quick: test-quick ## Run fast tests (no Valgrind) (alias)
 .PHONY: tests-quick
+
+
+# Lint sources
+lint: ## Lint sources
+	$(CC) -fsyntax-only $(CFLAGS) -g -Wall -pedantic $(SRC)
+.PHONY: lint
+
+
+# Run valgrind on target
+valgrind: ## Run Valgrind on target
+	$(CC) $(CFLAGS) -g -Wall $(SRC) && valgrind -v --leak-check=full ./a.out && rm a.out
+.PHONY: valgrind
+
+
+# Strip symbols from target
+strip: $(TARGET) ## Strip symbols from target
+	strip $(TARGET)
+.PHONY: strip
+
+
+# Clean target
+clean: ## Clean compiled files
+	rm -f $(OBJ) $(TARGET)
+.PHONY: clean
+
 
 # Watch source for changes
 watch: ## Watch source for changes

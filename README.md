@@ -17,8 +17,10 @@ c-skeleton is a simple and minimalistic starting point for C projects. It includ
 
 Ensure you have the following installed on your system:
 
-- GCC (GNU Compiler Collection)
+- Standard C Compiler
 - Make
+- (Optional) AWK: For `make help`
+- (Optional) fswatch: For `make watch`
 
 ## Installation
 

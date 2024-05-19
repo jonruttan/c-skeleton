@@ -108,9 +108,10 @@ clean: ## Clean compiled files
 # Watch source for changes
 watch: ## Watch source for changes
 	while true; do \
-		trap "exit;" SIGINT SIGTERM; \
 		fswatch -o --event Created --event Updated --event MovedTo Makefile $(INC) $(SRC) $(TST) | \
-		make && make test; \
+		while read num; do \
+			make && make test; \
+		done; \
 	done
 .PHONY: watch
 

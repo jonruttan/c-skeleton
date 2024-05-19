@@ -40,6 +40,10 @@ $(TARGET): $(OBJ) | $(BIN_DIR)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Target
+target: $(TARGET) ## Make target
+.PHONY: target
+
 # Debug target
 debug: $(DEBUG_TARGET) ## Make debug target
 .PHONY: debug

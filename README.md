@@ -17,10 +17,10 @@ c-skeleton is a simple and minimalistic starting point for C projects. It includ
 
 Ensure you have the following installed on your system:
 
-- Standard C Compiler
-- Make
-- (Optional) AWK: For `make help`
-- (Optional) fswatch: For `make watch`
+- **Standard C Compiler**
+- **Make**
+- **AWK** (optional, for `make help`)
+- **fswatch** (optional, for `make watch`)
 
 ## Installation
 

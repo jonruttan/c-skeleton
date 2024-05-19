@@ -37,6 +37,13 @@ To build the project, simply run:
 make
 ```
 
+For help on make options, run:
+
+```sh
+make help
+```
+
+
 To run all tests:
 
 ```sh

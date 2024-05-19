@@ -27,7 +27,7 @@ Ensure you have the following installed on your system:
 Clone the repository to your local machine:
 
 ```sh
-git clone --recurse-submodules https://github.com/yourusername/c-skeleton.git
+git clone --recurse-submodules https://github.com/jonruttan/c-skeleton.git
 cd c-skeleton
 ```
 

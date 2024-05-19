@@ -80,8 +80,12 @@ test-quick: ## Run fast tests (no Valgrind)
 .PHONY: test-quick
 
 # Alias test
-tests: test ## Run tests
+tests: test ## Run tests (alias)
 .PHONY: tests
+
+# Alias test-quick
+tests-quick: test-quick ## Run fast tests (no Valgrind) (alias)
+.PHONY: tests-quick
 
 # Watch source for changes
 watch: ## Watch source for changes
